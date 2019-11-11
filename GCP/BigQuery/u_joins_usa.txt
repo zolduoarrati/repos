@@ -2,5 +2,12 @@
 SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views,count(b.id) badges
 FROM `calcium-scholar-258203.stackoverflow.Users_usa` u
 join `calcium-scholar-258203.stackoverflow.Badges` b on u.Id = b.UserId
-group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views
+group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, b.id
+order by u.id asc
 
+--comments
+SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, count(c.id) as comments
+FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges` u
+join `calcium-scholar-258203.stackoverflow.Comments` c on u.id = c.id
+group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, c.id
+order by u.id asc
