@@ -1,37 +1,25 @@
 --badges
-SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views,count(b.id) badges
+SELECT u.Id, u.Location, u.DownVotes, u.Reputation, u.UpVotes, u.Views,count(b.id) badges
 FROM `calcium-scholar-258203.stackoverflow.Users_usa` u
-join `calcium-scholar-258203.stackoverflow.Badges` b on u.Id = b.UserId
-group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, b.id
+full join `calcium-scholar-258203.stackoverflow.Badges` b on u.Id = b.UserId
+group by u.Id, u.Location, u.DownVotes, u.Reputation, u.UpVotes, u.Views
 order by u.id asc
 
---comments
-SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, count(c.id) as comments
-FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges` u
-join `calcium-scholar-258203.stackoverflow.Comments` c on u.id = c.id
-group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, c.id
-order by u.id asc
 
 ---updated_comments
-SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, count(c.id) as comments, sum(c.score) comment_score
+SELECT u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, count(c.id) as comments, sum(c.Score) comments_score
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges` u
-join `calcium-scholar-258203.stackoverflow.Comments` c on u.id = c.id
-group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, c.id
+full join `calcium-scholar-258203.stackoverflow.Comments` c on u.id = c.UserId
+group by  u.Id, u.Location, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges
 order by u.id asc
 
-SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, u.comments, u.comments_score comments_scores, count(p.id) questions, p.ViewCount, p.AnswerCount
+--posts
+
+SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, u.comments, u.comments_score comments_scores, count(p.id) questions--, p.ViewCount question_views, p.AnswerCount question_answers, p.FavoriteCount question_favorites
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments` u
 join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
 where p.PostTypeId = 1 
-group by  u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, u.comments, u.comments_score, p.ViewCount, p.AnswerCount
-order by u.id asc
-
-
-SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, u.comments, u.comments_score comments_scores, count(p.id) questions, p.ViewCount question_views, p.AnswerCount question_answers
-FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments` u
-join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
-where p.PostTypeId = 1 
-group by  u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, u.comments, u.comments_score, p.ViewCount, p.AnswerCount
+group by  u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, u.comments, u.comments_score 
 order by u.id asc
 
 
