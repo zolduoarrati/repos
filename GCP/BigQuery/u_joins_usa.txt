@@ -11,3 +11,10 @@ FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges` u
 join `calcium-scholar-258203.stackoverflow.Comments` c on u.id = c.id
 group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, c.id
 order by u.id asc
+
+---updated_comments
+SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, count(c.id) as comments, sum(c.score) comment_score
+FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges` u
+join `calcium-scholar-258203.stackoverflow.Comments` c on u.id = c.id
+group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges, c.id
+order by u.id asc
