@@ -1,0 +1,6 @@
+--badges
+SELECT u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views,count(b.id) badges
+FROM `calcium-scholar-258203.stackoverflow.Users_usa` u
+join `calcium-scholar-258203.stackoverflow.Badges` b on u.Id = b.UserId
+group by u.Id, u.DownVotes, u.Reputation, u.UpVotes, u.Views
+
