@@ -381,7 +381,7 @@ full join
 on t1.id = t2.user_id
 group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved, PH_PostNoticeAdded, PH_PostMergeSource, PH_PostMigrated
 order by t1.id asc
-............................................................................
+.............................................................................
 ----user_ph1
 create table stackoverflow.ph37 as
 select t1.*,count(t2.id) PH_PostMigrated, PH_PostMergeDestination, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved, PH_PostNoticeAdded, PH_PostMergeSource, PH_PostMigrated, PH_PostMergeDestinationHere
