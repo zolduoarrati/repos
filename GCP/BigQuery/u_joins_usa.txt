@@ -84,3 +84,314 @@ full join
 (SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 7) t2
 on t1.id = t2.id
 order by t1.id asc
+
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 1) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc

@@ -1,0 +1,394 @@
+----user_ph1
+create table stackoverflow.ph2 as
+select t1.*,count(t2.id) PH_EditTitle
+from 
+(SELECT * FROM `stackoverflow.ph1`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 2) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph3 as
+select t1.*,count(t2.id) PH_InitialBody
+from 
+(SELECT * FROM `stackoverflow.ph2`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 3) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph4 as
+select t1.*,count(t2.id) PH_InitialTags
+from 
+(SELECT * FROM `stackoverflow.ph3`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 4) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph5 as
+select t1.*,count(t2.id) PH_EditBody
+from 
+(SELECT * FROM `stackoverflow.ph4`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 5) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody, PH_InitialTags
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph6 as
+select t1.*,count(t2.id) PH_EditTags
+from 
+(SELECT * FROM `stackoverflow.ph5`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 6) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody
+order by t1.id asc
+----user_ph1
+create table stackoverflow.ph7 as
+select t1.*,count(t2.id) PH_RollbackTitle
+from 
+(SELECT * FROM `stackoverflow.ph6`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 7) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph8 as
+select t1.*,count(t2.id) PH_RollbackBody
+from 
+(SELECT * FROM `stackoverflow.ph7`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 8) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph9 as
+select t1.*,count(t2.id) PH_PostReopened
+from 
+(SELECT * FROM `stackoverflow.ph8`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 9) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph10 as
+select t1.*,count(t2.id) PH_RollbackTags
+from 
+(SELECT * FROM `stackoverflow.ph9`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 10) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph11 as
+select t1.*,count(t2.id) PH_PostClosed
+from 
+(SELECT * FROM `stackoverflow.ph10`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 11) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph12 as
+select t1.*,count(t2.id) PH_PostDeleted
+from 
+(SELECT * FROM `stackoverflow.ph11`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 12) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph13 as
+select t1.*,count(t2.id) PH_PostUndeleted
+from 
+(SELECT * FROM `stackoverflow.ph12`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 13) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph14 as
+select t1.*,count(t2.id) PH_QuestionMerged
+from 
+(SELECT * FROM `stackoverflow.ph13`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 14) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph15 as
+select t1.*,count(t2.id) PH_PostMigrated
+from 
+(SELECT * FROM `stackoverflow.ph14`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 15) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph16 as
+select t1.*,count(t2.id) PH_CommunityOwned
+from 
+(SELECT * FROM `stackoverflow.ph15`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 16) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph17 as
+select t1.*,count(t2.id) PH_PostLocked
+from 
+(SELECT * FROM `stackoverflow.ph16`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 17) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph18 as
+select t1.*,count(t2.id) PH_PostUnlocked
+from 
+(SELECT * FROM `stackoverflow.ph17`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 18) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph19 as
+select t1.*,count(t2.id) PH_QuestionUnprotected
+from 
+(SELECT * FROM `stackoverflow.ph18`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 19) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph20 as
+select t1.*,count(t2.id) PH_QuestionUnmerged
+from 
+(SELECT * FROM `stackoverflow.ph19`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 20) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph21 as
+select t1.*,count(t2.id) PH_PostDisassociated
+from 
+(SELECT * FROM `stackoverflow.ph20`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 21) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph22 as
+select t1.*,count(t2.id) PH_QuestionProtected
+from 
+(SELECT * FROM `stackoverflow.ph21`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 22) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph23 as
+select t1.*,count(t2.id) PH_SuggestedEditApplied
+from 
+(SELECT * FROM `stackoverflow.ph22`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 23) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph24 as
+select t1.*,count(t2.id) PH_UnknownDevRelatedEvent
+from 
+(SELECT * FROM `stackoverflow.ph23`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 24) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph25 as
+select t1.*,count(t2.id) PH_PostTweeted
+from 
+(SELECT * FROM `stackoverflow.ph24`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 25) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph26 as
+select t1.*,count(t2.id) PH_VoteNullificationByDev
+from 
+(SELECT * FROM `stackoverflow.ph25`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 26) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph27 as
+select t1.*,count(t2.id) PH_UnknownSuggestionEvent
+from 
+(SELECT * FROM `stackoverflow.ph26`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 27) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph28 as
+select t1.*,count(t2.id) PH_PostUnmigrated
+from 
+(SELECT * FROM `stackoverflow.ph27`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 28) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph29 as
+select t1.*,count(t2.id) PH_UnknownModeratorEvent
+from 
+(SELECT * FROM `stackoverflow.ph28`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 29) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph30 as
+select t1.*,count(t2.id) PH_UnknownEvent
+from 
+(SELECT * FROM `stackoverflow.29`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 30) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph31 as
+select t1.*,count(t2.id) PH_CommentDiscussionMovedToChat
+from 
+(SELECT * FROM `stackoverflow.ph30`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 31) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph32 as
+select t1.*,count(t2.id) PH_PostNoticeRemoved
+from 
+(SELECT * FROM `stackoverflow.ph31`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 32) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph33 as
+select t1.*,count(t2.id) PH_PostNoticeAdded
+from 
+(SELECT * FROM `stackoverflow.ph32`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 33) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph34 as
+select t1.*,count(t2.id) PH_PostMergeSource
+from 
+(SELECT * FROM `stackoverflow.ph33`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 34) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved, PH_PostNoticeAdded
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph35 as
+select t1.*,count(t2.id) PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved, PH_PostNoticeAdded, PH_PostMergeSourceAway
+from 
+(SELECT * FROM `stackoverflow.ph34`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 35) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved, PH_PostNoticeAdded, PH_PostMergeSource
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph36 as
+select t1.*,count(t2.id) PH_PostMergeDestination
+from 
+(SELECT * FROM `stackoverflow.ph35`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 36) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved, PH_PostNoticeAdded, PH_PostMergeSource, PH_PostMigrated
+order by t1.id asc
+............................................................................
+----user_ph1
+create table stackoverflow.ph37 as
+select t1.*,count(t2.id) PH_PostMigrated, PH_PostMergeDestination, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved, PH_PostNoticeAdded, PH_PostMergeSource, PH_PostMigrated, PH_PostMergeDestinationHere
+from 
+(SELECT * FROM `stackoverflow.ph36`) t1 
+full join 
+(SELECT * FROM `calcium-scholar-258203.stackoverflow_bq.post_history`  WHERE post_history_type_id = 37) t2
+on t1.id = t2.user_id
+group by id, Location, DownVotes, UpVotes, Reputation, Views, badges, comments, comments_score, questions, answers, wiki, tagwikiexerpt, tagwiki, moderatornomination, wikiplaceholder, PH_initialtitle, PH_EditTitle, PH_InitialBody,  PH_InitialTags, PH_EditBody, PH_EditTags, PH_RollbackTitle, PH_RollbackBody, PH_PostReopened, PH_RollbackTags, PH_PostClosed, PH_PostDeleted, PH_PostUndeleted, PH_QuestionMerged, PH_PostMigrated, PH_PostMergeDestination, PH_CommunityOwned, PH_PostLocked, PH_PostUnlocked, PH_QuestionUnprotected, PH_QuestionUnmerged, PH_PostDisassociated, PH_QuestionProtected, PH_SuggestedEditApplied, PH_UnknownDevRelatedEvent, PH_PostTweeted, PH_VoteNullificationByDev, PH_UnknownSuggestionEvent, PH_PostUnmigrated, PH_UnknownModeratorEvent, PH_UnknownEvent, PH_CommentDiscussionMovedToChat, PH_PostNoticeRemoved, PH_PostNoticeAdded, PH_PostMergeSource, PH_PostMigrated, PH_PostMergeDestination
+order by t1.id asc
