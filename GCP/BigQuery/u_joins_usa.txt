@@ -16,7 +16,7 @@ order by u.id asc
 --posts_questions
 SELECT u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, count(p.id) questions, sum(p.score) questions_score,sum(p.ViewCount) questions_view,sum(p.AnswerCount) questions_answer, sum(p.CommentCount) questions_comment, sum(p.FavoriteCount) questions_favorite
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments` u
-join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
+full join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
 where p.PostTypeId = 1 
 group by u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score
 order by u.id asc
@@ -27,3 +27,16 @@ FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments_questions` 
 full join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
 where p.PostTypeId = 2 
 group by u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, u.questions, u.questions_score, u.questions_view, u.questions_answer, u.questions_comment, u.questions_favorite
+order by u.id asc
+
+--Post_history
+SELECT u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, u.questions, u.questions_score, u.questions_view, u.questions_answer, u.questions_comment, u.questions_favorite, u.answers, u.answers_score, u.answers_comment, count(p.id) postHistory
+FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments_questions_answers` u
+full join `calcium-scholar-258203.stackoverflow.PostHistory` p on u.id = p.UserId
+group by u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, u.questions, u.questions_score, u.questions_view, u.questions_answer, u.questions_comment, u.questions_favorite, u.answers, u.answers_score, u.answers_comment
+order by u.id asc
+
+----user_comments_badges_questions
+select t1.id, t1.Location, t1.DownVotes, t1.UpVotes, t1.Reputation, t1.Views, t1.badges, t1.comments, t1.comments_score, t2.posts questions
+from (SELECT * FROM `stackoverflow.Users_usa_badges_comments`) t1 full join (SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 1) t2
+on t1.id = t2.id
