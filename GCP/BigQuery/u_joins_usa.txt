@@ -21,7 +21,7 @@ where p.PostTypeId = 1
 group by u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score
 order by u.id asc
 
---Posts_answers
+--Posts_answers XX
 SELECT u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, u.questions, u.questions_score, u.questions_view, u.questions_answer, u.questions_comment, u.questions_favorite, count(p.id) answers, sum(p.score) answers_score, sum(p.CommentCount) answers_comment
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments_questions` u
 full join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
@@ -29,7 +29,7 @@ where p.PostTypeId = 2
 group by u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, u.questions, u.questions_score, u.questions_view, u.questions_answer, u.questions_comment, u.questions_favorite
 order by u.id asc
 
---Post_history
+--Post_history  XX
 SELECT u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, u.questions, u.questions_score, u.questions_view, u.questions_answer, u.questions_comment, u.questions_favorite, u.answers, u.answers_score, u.answers_comment, count(p.id) postHistory
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments_questions_answers` u
 full join `calcium-scholar-258203.stackoverflow.PostHistory` p on u.id = p.UserId
@@ -40,3 +40,47 @@ order by u.id asc
 select t1.id, t1.Location, t1.DownVotes, t1.UpVotes, t1.Reputation, t1.Views, t1.badges, t1.comments, t1.comments_score, t2.posts questions
 from (SELECT * FROM `stackoverflow.Users_usa_badges_comments`) t1 full join (SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 1) t2
 on t1.id = t2.id
+----user_comments_badges_questions_answers
+select t1.id, t1.Location, t1.DownVotes, t1.UpVotes, t1.Reputation, t1.Views, t1.badges, t1.comments, t1.comments_score, t1.questions,t2.post answers
+from (SELECT * FROM `stackoverflow.Users_usa_badges_comments`) t1 full join (SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 2) t2
+on t1.id = t2.id
+----user_comments_badges_questions_answers_wiki
+select t1.id, t1.Location, t1.DownVotes, t1.UpVotes, t1.Reputation, t1.Views, t1.badges, t1.comments, t1.comments_score, t1.questions,t1.answers, t2.posts wiki
+from (SELECT * FROM `stackoverflow.Users_usa_badges_comments`) t1 full join (SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 3) t2
+on t1.id = t2.id
+
+----user_comments_badges_questions_answers_wiki
+select t1.id, t1.Location, t1.DownVotes, t1.UpVotes, t1.Reputation, t1.Views, t1.badges, t1.comments, t1.comments_score, t1.questions, t1.answers, t1.wiki,t2.posts tagwikiexerpt
+from 
+(SELECT * FROM `stackoverflow.Users_usa_badges_comments_questions_answers_wiki`) t1 
+full join 
+(SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 4) t2
+on t1.id = t2.id
+order by t1.id asc
+
+----user_comments_badges_questions_answers_wiki_tagwikiexerpt
+select t1.id, t1.Location, t1.DownVotes, t1.UpVotes, t1.Reputation, t1.Views, t1.badges, t1.comments, t1.comments_score, t1.questions, t1.answers, t1.wiki,t1.tagwikiexerpt, t2.posts tagwiki
+from 
+(SELECT * FROM `stackoverflow.Users_usa_badges_comments_questions_answers_wiki_tagwikiexerpt`) t1 
+full join 
+(SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 5) t2
+on t1.id = t2.id
+order by t1.id asc
+
+----user_comments_badges_questions_answers_wiki_tagwikiexerpt_moderatornomination
+select t1.id, t1.Location, t1.DownVotes, t1.UpVotes, t1.Reputation, t1.Views, t1.badges, t1.comments, t1.comments_score, t1.questions, t1.answers, t1.wiki,t1.tagwikiexerpt, t1.tagwiki, t2.posts moderatornomination,
+from 
+(SELECT * FROM `stackoverflow.Users_usa_badges_comments_questions_answers_wiki_tagwikiexerpt_tagwiki_moderatornomination`) t1 
+full join 
+(SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 6) t2
+on t1.id = t2.id
+order by t1.id asc
+
+----user_comments_badges_questions_answers_wiki_tagwikiexerpt_moderatornomination_wikiplaceholder
+select t1.id, t1.Location, t1.DownVotes, t1.UpVotes, t1.Reputation, t1.Views, t1.badges, t1.comments, t1.comments_score, t1.questions, t1.answers, t1.wiki,t1.tagwikiexerpt, t1.tagwiki, t1.moderatornomination,t2.posts wikiplaceholder
+from 
+(SELECT * FROM `stackoverflow.Users_usa_badges_comments_questions_answers_wiki_tagwikiexerpt_tagwiki_moderatornomination`) t1 
+full join 
+(SELECT * FROM `stackoverflow.Users_usa_posts_types` WHERE PostTypeId = 7) t2
+on t1.id = t2.id
+order by t1.id asc
