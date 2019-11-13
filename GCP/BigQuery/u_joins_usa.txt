@@ -1,9 +1,18 @@
 --badges
-SELECT u.Id, u.Location, u.DownVotes, u.Reputation, u.UpVotes, u.Views,count(b.id) badges
-FROM `calcium-scholar-258203.stackoverflow.Users_usa` u
+create table stackoverflow.Users_china_badges as
+SELECT u.Id u_id, u.AboutMe u_AboutMe, u.Location u_location, u.CreationDate u_CreationDate, DisplayName u_DisplayName, LastAccessDate u_LastAccessDate, u.UpVotes u_UpVotes, u.DownVotes u_DownVotes, u.Reputation u_Reputation, u.Views u_Views,count(b.id) u_badges
+FROM `calcium-scholar-258203.stackoverflow.Users_china` u
 full join `calcium-scholar-258203.stackoverflow.Badges` b on u.Id = b.UserId
-group by u.Id, u.Location, u.DownVotes, u.Reputation, u.UpVotes, u.Views
-order by u.id asc
+group by  u.Id, u.AboutMe, u.Location, u.CreationDate, DisplayName, LastAccessDate, u.UpVotes, u.DownVotes, u.Reputation, u.Views
+order by u_id asc;
+------Qs_Comments
+create table stackoverflow.users_QScomments as
+SELECT c.UserId, count(c.id) u_QScomments
+FROM `calcium-scholar-258203.stackoverflow.Comments` c
+full join `calcium-scholar-258203.stackoverflow.Posts` p on c.PostId = p.Id 
+where p.PostTypeId = 1
+group by c.UserId;
+------ANS_Comments
 
 
 ---updated_comments
