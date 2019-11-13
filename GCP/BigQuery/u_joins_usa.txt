@@ -61,9 +61,10 @@ group by u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badg
 order by u.id asc
 
 --posts_questions-China
-SELECT u.id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments, count(p.id) QS, sum(p.score) QS_score,sum(p.ViewCount) QS_view,sum(p.AnswerCount) QS_answer, sum(p.CommentCount) QS_comment, sum(p.FavoriteCount) QS_favorite
+create table `calcium-scholar-258203.stackoverflow.Users_china_badges_QsAsComments_QSPosts` as
+SELECT u.id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments, count(p.id) QS, sum(p.score) QS_scores,sum(p.ViewCount) QS_views,sum(p.AnswerCount) QS_answers, sum(p.CommentCount) QS_comments, sum(p.FavoriteCount) QS_favorites
 FROM `calcium-scholar-258203.stackoverflow.Users_china_badges_QsAsComments` u
-full join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
+left join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
 where p.PostTypeId = 1 
 group by u.id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments
 order by u.id asc
