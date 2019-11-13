@@ -44,3 +44,11 @@ FROM `calcium-scholar-258203.stackoverflow.Users_Usa_Badges_Comments_Posts` u
 left join `calcium-scholar-258203.stackoverflow_bq.post_history` ph on u.Id = ph.user_id
 group by Id, AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, badges, Q_comments, A_comments, P_questions, P_answers
 order by u.Id asc;
+
+------------------------------------------------------------------------------------------------------------------
+create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
+SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
+FROM `calcium-scholar-258203.stackoverflow.Users_china` u
+left join `calcium-scholar-258203.stackoverflow.Badges` b on u.id = b.UserId
+group by u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views
+order by u.Id asc;
