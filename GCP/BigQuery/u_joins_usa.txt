@@ -13,6 +13,32 @@ full join `calcium-scholar-258203.stackoverflow.Posts` p on c.PostId = p.Id
 where p.PostTypeId = 1
 group by c.UserId;
 ------ANS_Comments
+create table stackoverflow.users_QScomments as
+SELECT c.UserId, count(c.id) u_QScomments
+FROM `calcium-scholar-258203.stackoverflow.Comments` c
+full join `calcium-scholar-258203.stackoverflow.Posts` p on c.PostId = p.Id 
+where p.PostTypeId = 2
+group by c.UserId;
+-------users_QS_ANS_comments
+create table `calcium-scholar-258203.stackoverflow.users_QS_ANS_comments` as
+SELECT UserId, qs.u_QScomments, ac.u_ANScomments
+FROM `calcium-scholar-258203.stackoverflow.users_QScomments` qs
+full outer join `calcium-scholar-258203.stackoverflow.users_ANScomments` ac using (UserId) --on qs.UserId = ac.UserId
+order by UserId asc;
+
+of 2888355 
+
+
+SELECT u.*,c.u_QScomments, c.u_ANScomments
+FROM `calcium-scholar-258203.stackoverflow.Users_china_badges` u
+inner join `calcium-scholar-258203.stackoverflow.users_QsAS_comments` c on u.u_id = c.id
+order by u.u_id asc
+
+
+SELECT  u.Id, AboutMe, DisplayName, UpVotes, DownVotes, CreationDate, LastAccessDate, Location, Reputation, Views, u_QScomments, u_ANScomments
+from `calcium-scholar-258203.stackoverflow.Users_china` u
+join `calcium-scholar-258203.stackoverflow.users_QsAS_comments` c using (id)
+order by u.Id asc
 
 
 ---updated_comments
