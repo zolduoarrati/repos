@@ -44,7 +44,7 @@ from `calcium-scholar-258203.stackoverflow.Users_china` u
 join `calcium-scholar-258203.stackoverflow.users_QsAS_comments` c using (id)
 order by u.Id asc
 
-
+of 13417 
 ---updated_comments
 SELECT u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, count(c.id) as comments, sum(c.Score) comments_score
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges` u
