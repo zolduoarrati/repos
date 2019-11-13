@@ -45,6 +45,11 @@ left join `calcium-scholar-258203.stackoverflow_bq.post_history` ph on u.Id = ph
 group by Id, AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, badges, Q_comments, A_comments, P_questions, P_answers
 order by u.Id asc;
 
+create table `calcium-scholar-258203.stackoverflow.Users_Posts_QA` as
+SELECT OwnerUserId Id, pq.P_questions, pa.P_answers
+FROM `calcium-scholar-258203.stackoverflow.Users_Posts_Q` pq
+full join `calcium-scholar-258203.stackoverflow.Users_Posts_A` pa using (OwnerUserId)
+order by Id asc;
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
