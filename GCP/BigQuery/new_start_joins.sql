@@ -30,3 +30,9 @@ full outer join `calcium-scholar-258203.stackoverflow.Users_Acomments` a using (
 order by Id asc
 
 
+create table `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments_posts` as
+SELECT u.*, count(p.id) A_questions
+FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments_Qposts` u
+left join `calcium-scholar-258203.stackoverflow.Posts_Answers` p on u.Id = p.OwnerUserId
+group by Id, AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, T_badges, Q_comments, A_comments, P_questions
+order by u.Id asc;
