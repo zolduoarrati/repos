@@ -36,3 +36,11 @@ FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments_Qposts` u
 left join `calcium-scholar-258203.stackoverflow.Posts_Answers` p on u.Id = p.OwnerUserId
 group by Id, AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, T_badges, Q_comments, A_comments, P_questions
 order by u.Id asc;
+
+
+create table `calcium-scholar-258203.stackoverflow.Users_Usa_Badges_Comments_Posts_PostHistory` as
+SELECT u.*, count(ph.id) postHistory
+FROM `calcium-scholar-258203.stackoverflow.Users_Usa_Badges_Comments_Posts` u
+left join `calcium-scholar-258203.stackoverflow_bq.post_history` ph on u.Id = ph.user_id
+group by Id, AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, badges, Q_comments, A_comments, P_questions, P_answers
+order by u.Id asc;
