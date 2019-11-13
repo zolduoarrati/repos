@@ -50,6 +50,13 @@ SELECT OwnerUserId Id, pq.P_questions, pa.P_answers
 FROM `calcium-scholar-258203.stackoverflow.Users_Posts_Q` pq
 full join `calcium-scholar-258203.stackoverflow.Users_Posts_A` pa using (OwnerUserId)
 order by Id asc;
+
+
+create table `calcium-scholar-258203.stackoverflow.Users_PostHistory` as
+SELECT p.user_id id, count(p.id) postHistory
+FROM `calcium-scholar-258203.stackoverflow_bq.post_history` p
+group by id
+order by id asc;
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
