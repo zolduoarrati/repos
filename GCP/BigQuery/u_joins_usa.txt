@@ -26,8 +26,12 @@ FROM `calcium-scholar-258203.stackoverflow.users_QScomments` qs
 full outer join `calcium-scholar-258203.stackoverflow.users_ANScomments` ac using (UserId) --on qs.UserId = ac.UserId
 order by UserId asc;
 
-of 2888355 
-
+SELECT id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments,count(c.id) comments
+FROM `calcium-scholar-258203.stackoverflow.Users_china_badges_QsAsComments` u
+join `calcium-scholar-258203.stackoverflow.Comments` c using (id)
+group by id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments
+--where u_QScomments is not null
+order by comments desc
 
 SELECT u.*,c.u_QScomments, c.u_ANScomments
 FROM `calcium-scholar-258203.stackoverflow.Users_china_badges` u
