@@ -21,3 +21,12 @@ FROM `calcium-scholar-258203.stackoverflow_bq.comments` c
 left join  `calcium-scholar-258203.stackoverflow_bq.posts_answers` p on c.post_id = p.id
 group by Id
 order by Id asc;
+
+
+--create table`calcium-scholar-258203.stackoverflow.Users_QAcomments` as
+SELECT Id, Q_comments, A_comments
+FROM `calcium-scholar-258203.stackoverflow.Users_Qcomments` q
+full outer join `calcium-scholar-258203.stackoverflow.Users_Acomments` a using (Id)
+order by Id asc
+
+
