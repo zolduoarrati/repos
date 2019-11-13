@@ -52,13 +52,30 @@ full join `calcium-scholar-258203.stackoverflow.Comments` c on u.id = c.UserId
 group by  u.Id, u.Location, u.DownVotes, u.Reputation, u.UpVotes, u.Views, u.badges
 order by u.id asc
 
---posts_questions
+--posts_questions-US
 SELECT u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, count(p.id) questions, sum(p.score) questions_score,sum(p.ViewCount) questions_view,sum(p.AnswerCount) questions_answer, sum(p.CommentCount) questions_comment, sum(p.FavoriteCount) questions_favorite
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_badges_comments` u
 full join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
 where p.PostTypeId = 1 
 group by u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score
 order by u.id asc
+
+--posts_questions-China
+SELECT u.id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments, count(p.id) QS, sum(p.score) QS_score,sum(p.ViewCount) QS_view,sum(p.AnswerCount) QS_answer, sum(p.CommentCount) QS_comment, sum(p.FavoriteCount) QS_favorite
+FROM `calcium-scholar-258203.stackoverflow.Users_china_badges_QsAsComments` u
+full join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
+where p.PostTypeId = 1 
+group by u.id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments
+order by u.id asc
+
+
+SELECT u.id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments, count(p.id) QS, sum(p.score) QS_score,sum(p.ViewCount) QS_view,sum(p.AnswerCount) QS_answer, sum(p.CommentCount) QS_comment, sum(p.FavoriteCount) QS_favorite
+FROM `calcium-scholar-258203.stackoverflow.Users_china_badges_QsAsComments` u
+full join `calcium-scholar-258203.stackoverflow.Posts` p on u.id = p.OwnerUserId
+where p.PostTypeId = 1 
+group by u.id, u_AboutMe, u_location, u_CreationDate, u_DisplayName, u_LastAccessDate, u_UpVotes, u_DownVotes, u_Reputation, u_Views, u_badges, u_QScomments, u_ANScomments
+order by u.id asc
+
 
 --Posts_answers XX
 SELECT u.Id, u.Location, u.DownVotes, u.UpVotes, u.Reputation, u.Views, u.badges, u.comments, u.comments_score, u.questions, u.questions_score, u.questions_view, u.questions_answer, u.questions_comment, u.questions_favorite, count(p.id) answers, sum(p.score) answers_score, sum(p.CommentCount) answers_comment
