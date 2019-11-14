@@ -64,3 +64,9 @@ FROM `calcium-scholar-258203.stackoverflow.Users_china` u
 left join `calcium-scholar-258203.stackoverflow.Badges` b on u.id = b.UserId
 group by u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views
 order by u.Id asc;
+
+create table `calcium-scholar-258203.stackoverflow.Users_russia_badges_comments` as
+SELECT u.*,b.Q_comments, b.A_comments
+FROM `calcium-scholar-258203.stackoverflow.Users_russia_badges` u
+left join `calcium-scholar-258203.stackoverflow.Users_Comments_QA` b using (Id)
+order by u.Id asc;
