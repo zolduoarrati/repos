@@ -130,84 +130,89 @@ PostMergeSource,
 PostMigratedAway,
 PostMergeDestination,
 PostMigratedHere
-FROM `calcium-scholar-258203.stackoverflow.Users_PostHistoryType`
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_1` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_2` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_3` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_4` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_5` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_6` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_7` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_8` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_9` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_10` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_11` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_12` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_13` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_14` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_15` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_16` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_17` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_18` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_19` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_20` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_21` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_22` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_23` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_24` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_25` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_26` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_27` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_28` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_29` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_30` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_31` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_33` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_34` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_35` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_36` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_37` using (Id)
-left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_38` using (Id)
+FROM `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ`
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_1` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_2` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_3` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_4` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_5` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_6` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_7` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_8` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_9` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_10` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_11` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_12` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_13` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_14` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_15` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_16` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_17` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_18` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_19` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_20` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_21` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_22` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_23` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_24` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_25` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_26` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_27` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_28` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_29` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_30` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_31` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_33` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_34` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_35` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_36` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_37` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_38` using (Id)
 order by Id asc;
 
 
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_1`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_2`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_3`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_4`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_5`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_6`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_7`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_8`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_9`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_10`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_11`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_12`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_13`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_14`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_15`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_16`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_17`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_18`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_19`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_20`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_21`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_22`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_23`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_24`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_25`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_26`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_27`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_28`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_29`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_30`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_31`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_33`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_34`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_35`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_36`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_37`;
-drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_38`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_1`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_2`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_3`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_4`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_5`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_6`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_7`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_8`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_9`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_10`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_11`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_12`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_13`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_14`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_15`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_16`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_17`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_18`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_19`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_20`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_21`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_22`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_23`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_24`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_25`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_26`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_27`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_28`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_29`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_30`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_31`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_33`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_34`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_35`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_36`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_37`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_38`;
+
+create table `calcium-scholar-258203.stackoverflow.Users_russia_gen_alll` as
+SELECT OwnerUserId Id , AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, badges, Q_comments, A_comments, P_questions, P_answers, p_ModeratorNomination, p_PrivilegeWiki, p_TagWiki, p_TagWikiExerpt, p_Wiki, p_WikiPlaceholder, postHistory
+FROM `calcium-scholar-258203.stackoverflow.Users_russia_gen_all`
+order by Id asc;
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
