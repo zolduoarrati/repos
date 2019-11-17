@@ -82,6 +82,14 @@ left join `calcium-scholar-258203.stackoverflow.Posts_TagWikiExerpt_UserCount` e
 left join `calcium-scholar-258203.stackoverflow.Posts_Wiki_UserCount` k using (OwnerUserId)
 left join `calcium-scholar-258203.stackoverflow.Posts_WikiPlaceholder_UserCount` wp using (OwnerUserId)
 order by OwnerUserId asc;
+
+
+create table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType` as
+SELECT u.Id, p.PostHistoryTypeId,count(p.Id) PostHistory
+FROM `calcium-scholar-258203.stackoverflow.Users` u
+join `calcium-scholar-258203.stackoverflow.PostHistory` p on u.DisplayName = p.UserDisplayName
+group by u.Id, p.PostHistoryTypeId
+order by u.Id asc;
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
