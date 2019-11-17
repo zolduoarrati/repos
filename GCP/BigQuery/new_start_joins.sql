@@ -65,6 +65,23 @@ FROM `calcium-scholar-258203.stackoverflow.Posts_WikiPlaceholder` p
 group by OwnerUserId
 order by OwnerUserId asc;
 
+
+create table `calcium-scholar-258203.stackoverflow.Users_russia_gen` as
+SELECT Id OwnerUserId, AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, badges, Q_comments, A_comments, P_questions, P_answers, postHistory
+FROM `calcium-scholar-258203.stackoverflow.Users_Russia_Badges_Comments_Posts_PostHistory`
+order by OwnerUserId asc;
+
+
+create table `calcium-scholar-258203.stackoverflow.Users_russia_gen_all` as 
+SELECT OwnerUserId, AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, badges, Q_comments, A_comments, P_questions, P_answers , ModeratorNomination p_ModeratorNomination, PrivilegeWiki p_PrivilegeWiki, TagWiki p_TagWiki, TagWikiExerpt p_TagWikiExerpt, Wiki p_Wiki, WikiPlaceholder p_WikiPlaceholder, postHistory
+FROM `calcium-scholar-258203.stackoverflow.Users_russia_gen` u
+left join `calcium-scholar-258203.stackoverflow.Posts_ModeratorNomination_UserCount` m using (OwnerUserId)
+left join `calcium-scholar-258203.stackoverflow.Posts_PrivilegeWiki_UserCount` p using (OwnerUserId)
+left join `calcium-scholar-258203.stackoverflow.Posts_TagWiki_UserCount` w using (OwnerUserId)
+left join `calcium-scholar-258203.stackoverflow.Posts_TagWikiExerpt_UserCount` e using (OwnerUserId)
+left join `calcium-scholar-258203.stackoverflow.Posts_Wiki_UserCount` k using (OwnerUserId)
+left join `calcium-scholar-258203.stackoverflow.Posts_WikiPlaceholder_UserCount` wp using (OwnerUserId)
+order by OwnerUserId asc;
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
