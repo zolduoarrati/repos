@@ -90,6 +90,87 @@ FROM `calcium-scholar-258203.stackoverflow.Users` u
 join `calcium-scholar-258203.stackoverflow.PostHistory` p on u.DisplayName = p.UserDisplayName
 group by u.Id, p.PostHistoryTypeId
 order by u.Id asc;
+
+
+create table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_all` as 
+SELECT distinct (Id),InitialTitle,
+EditTitle,
+InitialBody,
+InitialTags,
+EditBody,
+EditTags,
+RollbackTitle,
+RollbackBody,
+PostReopened,
+RollbackTags,
+PostClosed,
+PostDeleted,
+PostUndeleted,
+QuestionMerged,
+PostMigrated,
+CommunityOwned,
+PostLocked,
+PostUnlocked,
+QuestionUnprotected,
+QuestionUnmerged,
+PostDisassociated,
+QuestionProtected,
+SuggestedEditApplied,
+UnknownDevRelatedEvent,
+PostTweeted,
+VoteNullificationByDev,
+UnknownSuggestionEvent,
+PostUnmigrated,
+UnknownModeratorEvent,
+UnknownEvent,
+CommentDiscussionMovedToChat,
+PostNoticeRemoved,
+PostNoticeAdded,
+PostMergeSource,
+PostMigratedAway,
+PostMergeDestination,
+PostMigratedHere
+FROM `calcium-scholar-258203.stackoverflow.Users_PostHistoryType`
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_1` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_2` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_3` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_4` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_5` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_6` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_7` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_8` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_9` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_10` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_11` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_12` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_13` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_14` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_15` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_16` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_17` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_18` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_19` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_20` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_21` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_22` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_23` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_24` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_25` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_26` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_27` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_28` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_29` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_30` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_31` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_33` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_34` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_35` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_36` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_37` using (Id)
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_38` using (Id)
+order by Id asc;
+
+
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
