@@ -171,6 +171,43 @@ left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_38` using 
 order by Id asc;
 
 
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_1`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_2`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_3`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_4`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_5`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_6`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_7`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_8`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_9`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_10`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_11`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_12`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_13`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_14`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_15`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_16`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_17`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_18`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_19`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_20`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_21`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_22`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_23`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_24`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_25`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_26`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_27`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_28`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_29`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_30`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_31`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_33`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_34`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_35`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_36`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_37`;
+drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_38`;
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
