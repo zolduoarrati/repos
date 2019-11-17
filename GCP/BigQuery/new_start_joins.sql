@@ -57,6 +57,14 @@ SELECT p.user_id id, count(p.id) postHistory
 FROM `calcium-scholar-258203.stackoverflow_bq.post_history` p
 group by id
 order by id asc;
+
+
+create table `calcium-scholar-258203.stackoverflow.Posts_WikiPlaceholder_UserCount` as 
+SELECT OwnerUserId, count(p.Id) WikiPlaceholder
+FROM `calcium-scholar-258203.stackoverflow.Posts_WikiPlaceholder` p
+group by OwnerUserId
+order by OwnerUserId asc;
+
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
@@ -70,3 +78,4 @@ SELECT u.*,b.Q_comments, b.A_comments
 FROM `calcium-scholar-258203.stackoverflow.Users_russia_badges` u
 left join `calcium-scholar-258203.stackoverflow.Users_Comments_QA` b using (Id)
 order by u.Id asc;
+
