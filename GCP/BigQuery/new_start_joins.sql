@@ -267,6 +267,14 @@ SELECT u.Id, TagName, f0_ as count
 FROM `calcium-scholar-258203.stackoverflow.Users_russia` u
 left join `calcium-scholar-258203.stackoverflow.Users_tags_upt` t using (Id)
 order by u.Id asc
+
+
+create table `calcium-scholar-258203.stackoverflow.Badges_russia` as
+SELECT u.Id, b.Name, count(b.Name) total_badges
+FROM `calcium-scholar-258203.stackoverflow.Users_russia` u
+left join `calcium-scholar-258203.stackoverflow.Badges` b on u.Id = b.UserId
+group by u.Id, b.Name
+order by u.Id asc
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
