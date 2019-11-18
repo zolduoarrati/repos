@@ -247,6 +247,13 @@ order by Id asc;
 
 SELECT * FROM `calcium-scholar-258203.stackoverflow.Users_tagWiki` union all 
 SELECT * FROM `calcium-scholar-258203.stackoverflow.Users_tagWiki_tagWikiExerpt`
+
+
+SELECT u.Id,TagName, Count
+FROM `calcium-scholar-258203.stackoverflow.Tags` T, 
+(select * from `calcium-scholar-258203.stackoverflow.Users_tagWiki_tagWikiExerpt_Upt`) u
+where T.ExcerptPostId = u.Id or T.WikiPostId = u.Id
+
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
