@@ -209,10 +209,44 @@ drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_36`;
 drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_37`;
 drop table `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_38`;
 
+
+drop table `calcium-scholar-258203.stackoverflow.Posts_ModeratorNomination_UserCount`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_PrivilegeWiki_UserCount`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_TagWiki_UserCount`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_TagWikiExerpt_UserCount`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_Wiki_UserCount`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_WikiPlaceholder_UserCount`;
+
+drop table `calcium-scholar-258203.stackoverflow.Posts_ModeratorNomination`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_PrivilegeWiki`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_TagWiki`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_TagWikiExerpt`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_Wiki`;
+drop table `calcium-scholar-258203.stackoverflow.Posts_WikiPlaceholder`;
+
+drop table `calcium-scholar-258203.stackoverflow.Users_China_Badges_Comments_Posts_PostHistory`;
+drop table `calcium-scholar-258203.stackoverflow.Users_Russia_Badges_Comments_Posts_PostHistory`;
+drop table `calcium-scholar-258203.stackoverflow.Users_Usa_Badges_Comments_Posts_PostHistory`;
+
+drop table `calcium-scholar-258203.stackoverflow.Users_Posts_QA`;
+drop table `calcium-scholar-258203.stackoverflow.Users_Comments_QA`;
+
+
 create table `calcium-scholar-258203.stackoverflow.Users_russia_gen_alll` as
 SELECT OwnerUserId Id , AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, badges, Q_comments, A_comments, P_questions, P_answers, p_ModeratorNomination, p_PrivilegeWiki, p_TagWiki, p_TagWikiExerpt, p_Wiki, p_WikiPlaceholder, postHistory
 FROM `calcium-scholar-258203.stackoverflow.Users_russia_gen_all`
 order by Id asc;
+
+
+create table `calcium-scholar-258203.stackoverflow.Users_russia_info` as 
+SELECT u.Id, AboutMe, CreationDate, DisplayName, DownVotes, LastAccessDate, Location, Reputation, UpVotes, Views, badges, Q_comments, A_comments, P_questions, P_answers, p_ModeratorNomination, p_PrivilegeWiki, p_TagWiki, p_TagWikiExerpt, p_Wiki, p_WikiPlaceholder, InitialTitle, EditTitle, InitialBody, InitialTags, EditBody, EditTags, RollbackTitle, RollbackBody, PostReopened, RollbackTags, PostClosed, PostDeleted, PostUndeleted, QuestionMerged, PostMigrated, CommunityOwned, PostLocked, PostUnlocked, QuestionUnprotected, QuestionUnmerged, PostDisassociated, QuestionProtected, SuggestedEditApplied, UnknownDevRelatedEvent, PostTweeted, VoteNullificationByDev, UnknownSuggestionEvent, PostUnmigrated, UnknownModeratorEvent, UnknownEvent, CommentDiscussionMovedToChat, PostNoticeRemoved, PostNoticeAdded, PostMergeSource, PostMigratedAway, PostMergeDestination, PostMigratedHere
+FROM `calcium-scholar-258203.stackoverflow.Users_russia_gen_alll` u
+left join `calcium-scholar-258203.stackoverflow.Users_PostHistoryType_BQ_all` using (Id)
+order by Id asc;
+
+
+SELECT * FROM `calcium-scholar-258203.stackoverflow.Users_tagWiki` union all 
+SELECT * FROM `calcium-scholar-258203.stackoverflow.Users_tagWiki_tagWikiExerpt`
 ------------------------------------------------------------------------------------------------------------------
 create table `calcium-scholar-258203.stackoverflow.Users_china_badges` as
 SELECT u.Id, u.AboutMe, u.CreationDate, u.DisplayName, u.DownVotes, u.LastAccessDate, u.Location, u.Reputation, u.UpVotes, u.Views, count(b.id) badges
