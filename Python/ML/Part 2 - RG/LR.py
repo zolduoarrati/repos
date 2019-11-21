@@ -10,6 +10,8 @@ import pandas as pd
 dataset = pd.read_csv('Salary_Data.csv')
 # data manipulation
 x = dataset.iloc[:,1].values
-y = dataset - x
+y = dataset.iloc[:,0].values
+# creating train and test data
+
 
 
