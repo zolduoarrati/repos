@@ -22,3 +22,4 @@ x[:, 0] = LabelEncoder().fit_transform(x[:, 0])
 y = LabelEncoder().fit_transform(y)
 # creating OneHotEncoder object to transform integer categorical values into dummy categorical
 x = OneHotEncoder(categorical_features=[0]).fit_transform(x).toarray()
+x_train,x_test,y_train,y_test = train_test_split(x,y, test_size = 0.2, random_state = 0)
