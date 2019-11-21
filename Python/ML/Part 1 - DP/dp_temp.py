@@ -17,4 +17,7 @@ Y = dataset.iloc[:, 3:].values
 # dealing with missing data / imputer object
 imputer = Imputer(missing_values='NaN', strategy = 'mean', axis = 0)
 # fitting imputer  to the matrix that contain missing data
-imputer.fit(X[:, 1:3])
+imputer = imputer.fit(X[:, 1:3])
+# transform the missing data
+X[:, 1:3] = imputer.transform(X[:,1:3])
+
