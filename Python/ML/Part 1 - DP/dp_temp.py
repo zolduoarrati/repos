@@ -7,5 +7,12 @@ author: Elijah Zolduoarrati
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import Imputer
 #importing a dataset
 dataset = pd.read_csv('Data.csv')
+# create the independent variable vector
+X = dataset.iloc[:, :-1].values
+# create the dependent variable vector
+Y = dataset.iloc[:, 3:].values
+# dealing with missing data / imputer object
+imputer = Imputer(missing_values='NaN', strategy = 'mean', axis = 0)
