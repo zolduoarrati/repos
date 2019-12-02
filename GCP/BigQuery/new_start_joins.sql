@@ -308,3 +308,8 @@ FROM `calcium-scholar-258203.stackoverflow.Users_russia_all`
 drop table `calcium-scholar-258203.stackoverflow.Users_usa_gen_alll`;
 drop table `calcium-scholar-258203.stackoverflow.Users_china_gen_alll`;
 drop table `calcium-scholar-258203.stackoverflow.Users_russia_gen_alll`;
+
+
+update `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
+set location = 'United States'
+where location = 'us' or location = 'usa' or location = 'US' or location = 'USA'
