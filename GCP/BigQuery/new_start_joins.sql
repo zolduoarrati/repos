@@ -313,3 +313,9 @@ drop table `calcium-scholar-258203.stackoverflow.Users_russia_gen_alll`;
 update `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
 set location = 'United States'
 where location = 'us' or location = 'usa' or location = 'US' or location = 'USA'
+
+
+SELECT Location, count(Location) total
+FROM `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
+WHERE Location LIKE '%New York%'
+group by location
