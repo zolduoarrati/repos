@@ -330,3 +330,8 @@ order by location asc
 
 SELECT Id,  Round((TIMESTAMP_DIFF(LastAccessDate, CreationDate, DAY)/30),1) as activity_months
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
+
+
+create table `calcium-scholar-258203.stackoverflow.Users_usa_all_update1` as
+SELECT Id, AboutMe, AboutMe_length, CreationDate, LastAccessDate,  Round((TIMESTAMP_DIFF(LastAccessDate, CreationDate, DAY)/30),1) as activity_in_months, DisplayName, Location, UpVotes, DownVotes, Reputation, Views, badges, Q_comments, A_comments, P_questions, P_answers, p_ModeratorNomination, p_PrivilegeWiki, p_TagWiki, p_TagWikiExerpt, p_Wiki, p_WikiPlaceholder, ph_InitialTitle, ph_EditTitle, ph_InitialBody, ph_InitialTags, ph_EditBody, ph_EditTags, ph_RollbackTitle, ph_RollbackBody, ph_PostReopened, ph_RollbackTags, ph_PostClosed, ph_PostDeleted, ph_PostUndeleted, ph_QuestionMerged, ph_PostMigrated, ph_CommunityOwned, ph_PostLocked, ph_PostUnlocked, ph_QuestionUnprotected, ph_QuestionUnmerged, ph_PostDisassociated, ph_QuestionProtected, ph_SuggestedEditApplied, ph_UnknownDevRelatedEvent, ph_PostTweeted, ph_VoteNullificationByDev, ph_UnknownSuggestionEvent, ph_PostUnmigrated, ph_UnknownModeratorEvent, ph_UnknownEvent, ph_CommentDiscussionMovedToChat, ph_PostNoticeRemoved, ph_PostNoticeAdded, ph_PostMergeSource, ph_PostMigratedAway, ph_PostMergeDestination, ph_PostMigratedHere
+FROM `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
