@@ -319,3 +319,14 @@ SELECT Location, count(Location) total
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
 WHERE Location LIKE '%New York%'
 group by location
+
+
+SELECT Location, count(Location) total
+FROM `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
+--WHERE Location LIKE '%New York%'
+group by location
+order by location asc
+
+
+SELECT Id,  Round((TIMESTAMP_DIFF(LastAccessDate, CreationDate, DAY)/30),1) as activity_months
+FROM `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
