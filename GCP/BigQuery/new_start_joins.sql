@@ -340,3 +340,12 @@ FROM `calcium-scholar-258203.stackoverflow.Users_usa_all_update`
 SELECT *
 FROM `calcium-scholar-258203.stackoverflow.Users_usa_all_update1`
 order by activity_in_months asc
+
+
+create table `calcium-scholar-258203.stackoverflow.Posts_Russia` as
+SELECT u.id Id, p.Body Body
+FROM `calcium-scholar-258203.stackoverflow.Users_russia` u
+join `calcium-scholar-258203.stackoverflow.Posts` p on u.Id = p.OwnerUserId
+
+
+select id, Body from `calcium-scholar-258203.stackoverflow.Posts_Russia` ORDER BY RAND() LIMIT 400;
